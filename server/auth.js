@@ -22,6 +22,7 @@ const register = async (req, res, next) => {
             id: user[0].user_id,
             username
         }
+        return res.json(req.session.user)
     } else {
         res.status(409).json({error: "Username taken, please try another."});
     }
@@ -40,7 +41,7 @@ const login = async (req, res, next) => {
             id: checkedUser[0].user_id,
             username: checkedUser[0].username
         }
-        return res.json(req.session.user)
+        res.status(200).json(req.session.user)
     } else {
         return res.status(403).json({error: "Wrong username or password"})
     }

@@ -45,7 +45,7 @@ app.get('auth/user', function(req, res) {
 })
 
 // posts http request
-app.get('/api/posts/title', searchPost);
+app.get('/api/post', searchPost);
 app.get('/api/posts', getPosts);
 app.post('/api/posts', addPost);
 

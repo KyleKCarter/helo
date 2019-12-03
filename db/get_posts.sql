@@ -1,1 +1,2 @@
-SELECT * FROM helo_posts;
+SELECT * FROM helo_posts
+WHERE title=$1;

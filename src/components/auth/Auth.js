@@ -47,7 +47,7 @@ class Auth extends Component {
                     </div>
                     <div>
                         <h5>Password:</h5>
-                        <input name='password' onChange={this.handleChange} />
+                        <input type='password' name='password' onChange={this.handleChange} />
                     </div>
                     <div>
                         <button onClick={this.clickLogin}>Login</button>

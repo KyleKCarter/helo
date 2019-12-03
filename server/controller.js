@@ -13,7 +13,7 @@ addPost = (req, res) => {
 
 getPosts = (req, res) => {
     const db = req.app.get('db');
-    db.get_posts().then(response => {
+    db.get_all_posts().then(response => {
         res.status(200).json(response)
     }).catch(error => {
         console.log(error)
@@ -24,13 +24,13 @@ getPosts = (req, res) => {
 searchPost = (req, res) => {
     const db = req.app.get('db');
     const {title} = req.query;
-    db.certain_post([title]);
+    // db.certain_post([title]);
     if(!title) {
-        db.get_posts().then(response => {
+        db.get_all_post().then(response => {
             res.status(200).json(response)
         });
     } else {
-        db.certain_post(title).then(response => {
+        db.get_posts(title).then(response => {
             res.status(200).json(response)
         })
     }

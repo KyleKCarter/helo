@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {logoutUser} from './../../redux/authReducer';
 
 class Nav extends Component {
-    constructor() {
-        super();
-        this.state = {
-
-        }
+    
+    logout = () => {
+        this.props.logoutUser().then(() => {
+            this.props.history.push('/');
+        })
     }
 
     render() {
         return (
-            <div>Nav</div>
+            <button onClick={this.logout}>Log Out</button>
         )
     }
 }
 
-export default Nav;
+const mapStateToProps = state => {
+    return {
+        loggedIn: state.authReducer.loggedIn
+    }
+}
+
+export default withRouter(connect(mapStateToProps, {
+    logoutUser
+})(Nav));

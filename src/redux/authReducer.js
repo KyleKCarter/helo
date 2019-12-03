@@ -27,7 +27,7 @@ export const resetFields = () => {
     }
 }
 
-export const registerUser = (username, password, image) => {
+export const registerUser = (username, password) => {
     return {
         type: REGISTER_USER,
         payload: axios.post('/auth/user/register', {
